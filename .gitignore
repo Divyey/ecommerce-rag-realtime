@@ -1,8 +1,80 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
 venv/
-node_modules/
+ENV/
+env/
+.venv/
+.ENV/
+.env/
+env.bak/
+
+# VS Code settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Alembic migration cache
+alembic/versions/__pycache__/
+
+# Local env files
+.env
+*.env
+
+# Gradio/Streamlit flagged data
+.gradio/
+*.gradio/
+
+# Log files
+*.log
+*.txt
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python egg info
+*.egg-info/
 dist/
 build/
-.DS_Store
+
+# Node modules (if you use any JS in UI)
+node_modules/
+
+# Results/output folders (customize as needed)
+Zupain2/results-*/
+
+# Ignore flagged datasets
+flagged/
+
+# Ignore test outputs
+test_output/
+
+# Ignore backup files
+*~
+
+# Ignore editor swap files
+*.swp
+*.swo
