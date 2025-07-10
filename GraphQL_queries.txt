@@ -1,0 +1,149 @@
+====================================
+=          List 1 product          =
+====================================
+{
+  Get {
+    Product(where: {
+      path: ["id"]
+      operator: Equal
+      valueText: "64f38f46-04eb-52a7-bd85-107c3b9bb7b4"
+    }) {
+      name
+      price
+      old_price
+      discount
+      variant
+      sizes
+      description
+      main_image
+      url
+      _additional { id }
+    }
+  }
+}
+
+====================================
+=       List 10 products           =
+====================================
+{
+  Get {
+    Product(limit: 10) {
+      _additional { id }
+      name
+      price
+      old_price
+      discount
+      variant
+      sizes
+      description
+      main_image
+      url
+    }
+  }
+}
+
+=====================================
+=  Filter Products by Price Range   =
+= Returns products with price > 500 =
+=====================================
+{
+  Get {
+    Product(
+      where: {
+        path: ["price"]
+        operator: GreaterThan
+        valueNumber: 500
+      }
+      limit: 10
+    ) {
+      name
+      price
+      url
+    }
+  }
+}
+
+=======================================================
+= Filter by Variant and Sort by Discount (Descending) =
+= Returns up to 5 "LAVENDER" variant products, sorted by highest discount. =
+=======================================================
+{
+  Get {
+    Product(
+      where: {
+        path: ["variant"]
+        operator: Equal
+        valueText: "LAVENDER"
+      }
+      sort: {
+        path: ["discount"]
+        order: desc
+      }
+      limit: 5
+    ) {
+      name
+      variant
+      discount
+      price
+    }
+  }
+}
+=======================================================
+### Products with a Specific Size Available
+=======================================================
+graphql
+{
+  Get {
+    Product(
+      where: {
+        path: ["sizes"]
+        operator: ContainsAny
+        valueText: "XL"
+      }
+      limit: 10
+    ) {
+      name
+      sizes
+      price
+    }
+  }
+}
+
+Returns products where "XL" is one of the available sizes.
+
+=======================================================
+Text Search in Description
+Returns products whose descriptions are semantically similar to "ethnic wear".
+=======================================================
+{
+  Get {
+    Product(
+      nearText: {
+        concepts: ["ethnic wear"]
+      }
+      limit: 10
+    ) {
+      name
+      description
+      price
+    }
+  }
+}
+
+=======================================================
+Pagination: Get Next 10 Products After Skipping 10
+Fetches products 11–20.
+=======================================================
+
+{
+  Get {
+    Product(
+      limit: 10
+      offset: 10
+    ) {
+      name
+      price
+      url
+    }
+  }
+}

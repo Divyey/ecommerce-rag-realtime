@@ -1,0 +1,11 @@
+source venv/bin/activate
+uvicorn app.main:app --reload
+
+
+alembic revision --autogenerate -m "Initial tables"
+alembic upgrade head
+
+
+source venv/bin/activate
+python -m Zupain2.rerun_weaviate_upsert
+python Zupain2/add_id_to_products_json.py

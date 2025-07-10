@@ -1,0 +1,35 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+alembic
+python-dotenv
+pydantic[dotenv]
+pydantic[email]
+python-jose[cryptography]
+python-multipart
+passlib
+apscheduler
+weaviate-client # I am are using weaviate v4
+openai
+python-dotenv
+gradio
+# pip install --upgrade bcrypt==4.0.1 passlib==1.7.4
+# pip install weaviate-client
+
+# pip install aiohttp aiofiles beautifulsoup4 lxml playwright tqdm tenacity pyyaml
+# playwright install
+
+# crawl4ai-setup
+# crawl4ai-doctor
+# python -m Zupain2.zupain2
+
+crawl4ai
+lxml
+requests
+jsonlines
+playwright
+aiohttp
+aiofiles
+beautifulsoup4
+tqdm
