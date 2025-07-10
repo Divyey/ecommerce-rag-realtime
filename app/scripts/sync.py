@@ -2,7 +2,7 @@ import os
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
-from app.models.product import product
+from app.models.product import Product  # Fixed typo: should be Product, not product
 from app.core.weaviate_client import get_weaviate_client
 
 load_dotenv()

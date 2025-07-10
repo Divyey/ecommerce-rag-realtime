@@ -6,14 +6,13 @@ from weaviate.auth import AuthApiKey
 load_dotenv()
 WEAVIATE_URL = os.getenv("WEAVIATE_URL")
 WEAVIATE_API_KEY = os.getenv("WEAVIATE_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_APIKEY = os.getenv("OPENAI_APIKEY")  # Use this variable name
 
 def get_weaviate_client():
-    return weaviate.connect_to_weaviate_cloud(
+    return weaviate.WeaviateClient.connect_to_wcs(
         cluster_url=WEAVIATE_URL,
         auth_credentials=AuthApiKey(WEAVIATE_API_KEY),
-        headers={"X-OpenAI-Api-Key": OPENAI_API_KEY},
-        skip_init_checks=True
+        additional_headers={"X-OpenAI-Api-Key": OPENAI_APIKEY},
     )
 
 def upsert_weaviate_product(product: dict):
@@ -36,7 +35,6 @@ def upsert_weaviate_product(product: dict):
     elif "sizes" in clean_product:
         clean_product["sizes"] = [str(s) for s in clean_product["sizes"]]
 
-    # Log the payload for debugging
     print(f"Upserting to Weaviate (uuid={uuid}): {clean_product}")
 
     try:

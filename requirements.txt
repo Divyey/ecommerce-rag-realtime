@@ -10,7 +10,8 @@ python-jose[cryptography]
 python-multipart
 passlib
 apscheduler
-weaviate-client # I am are using weaviate v4
+weaviate-client # I am are using weaviate v4 || pip install --upgrade "weaviate-client>=4.6.0"
+
 openai
 python-dotenv
 gradio
